@@ -211,6 +211,10 @@ const userSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
+  panCard:{
+    type: String,
+   
+  },
   phone: {
     type: Number,
     required: false,

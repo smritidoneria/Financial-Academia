@@ -2,6 +2,8 @@ import express from 'express';
 import dotenv from 'dotenv';
 import auth from '../middlewares/auth.js';
 import UserController from '../controllers/userController.js';
+import { upload } from '../middlewares/multer.js';
+
 dotenv.config();
 
 const uR = express.Router();

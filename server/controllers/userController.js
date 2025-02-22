@@ -65,6 +65,7 @@ class UserController {
       console.log(req.body);
       const { name, email, phone,age, pfp, password, bio } = req.body;
       console.log("age",age);
+  
       
       const passwordHash = await bcrypt.hash(password, 10);
       const inventory = {
@@ -134,6 +135,7 @@ class UserController {
         blessons, // Add blessons schema
         flessons, // Add flessons schema
         investlessons, // Add investlessons schema
+        // panCard: panCardFile.path,
       });
 
       // Save the new user to the database

@@ -17,13 +17,15 @@ function Login() {
     email: "",
     password: "",
     phone: "",
-    age:""
+    age: "",
+    pancard: null,
   });
   const [confirmPassword, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [showLoginPassword, setShowLoginPassword] = useState(false);
   const [signIn, toggle] = useState(true);
+  const [pancard, setPanCard] = useState(null);
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
   const handleClickShowConfirmPassword = () =>
@@ -41,7 +43,7 @@ function Login() {
       !signupInfo.name ||
       !signupInfo.email ||
       !signupInfo.password ||
-      !signupInfo.phone|| !signupInfo.age
+      !signupInfo.phone || !signupInfo.age
     ) {
       toast.error("Please fill all the fields");
       toggle(false);
@@ -62,8 +64,9 @@ function Login() {
           email: "",
           password: "",
           phone: "",
-          age:""
+          age: ""
         });
+        setPanCard(null);
       })
       .catch((err) => {
         console.log(err);
@@ -153,6 +156,20 @@ function Login() {
                 setSignupInfo({ ...signupInfo, age: e.target.value })
               }
             />
+            {signupInfo.age >= 18 && (
+              <TextField
+                id="outlined-basic"
+                label="PAN Card"
+                variant="outlined"
+                margin="normal"
+                size="small"
+                fullWidth
+                type="file"
+                // onChange={(e) =>
+                //   setSignupInfo({ ...signupInfo, pancard: e.target.files[0] })
+                // }
+              />
+            )}
             <div className="relative w-full">
               <TextField
                 className="w-full "
@@ -284,7 +301,9 @@ function Login() {
             </Components.LeftOverlayPanel>
 
             <Components.RightOverlayPanel signinIn={signIn}>
-              <Components.Title>Welcome to Financial Academia!</Components.Title>
+              <Components.Title>
+                Welcome to Financial Academia!
+              </Components.Title>
               <Components.Paragraph>
                 One Click, Infinite Connections - Your Content, Everywhere!
               </Components.Paragraph>
