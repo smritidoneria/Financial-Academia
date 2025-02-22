@@ -89,7 +89,7 @@ function Footer() {
         />
         <div className='mb-[-10px]'>
           <div className='opacity-60'>
-          Copyright © InnoSave 2024. All rights reserved
+          Copyright © Financial Academia 2024. All rights reserved
           </div>
         </div>
       </div>

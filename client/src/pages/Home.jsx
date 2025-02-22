@@ -56,7 +56,7 @@ const Home = () => {
             <Center>
               <div className="w-full flex items-center gap-4 font-bold text-7xl">
                 <img src={logo} alt="" className="w-24 h-24" />
-                <span className="tracking-wide text-black">INNOSAVE</span>
+                <span className="tracking-wide text-black">Financial Academia</span>
               </div>
               {/* <h2 className="max-w-lg text-4xl font-bold md:text-5xl">
                             Grow faster with our
