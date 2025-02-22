@@ -62,7 +62,10 @@ class UserController {
   };
   register = async (req, res) => {
     try {
-      const { name, email, phone, pfp, password, bio } = req.body;
+      console.log(req.body);
+      const { name, email, phone,age, pfp, password, bio } = req.body;
+      console.log("age",age);
+      
       const passwordHash = await bcrypt.hash(password, 10);
       const inventory = {
         avatars: [
@@ -122,6 +125,7 @@ class UserController {
         name,
         email,
         phone,
+        age,
         pfp,
         password: passwordHash,
         bio: bio || "",

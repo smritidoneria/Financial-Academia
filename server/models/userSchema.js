@@ -9,6 +9,7 @@ const ItemsSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+
   value: {
     type: Number,
     required: true,
@@ -205,6 +206,10 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
     unique: true,
+  },
+  age: {
+    type: Number,
+    required: true,
   },
   phone: {
     type: Number,

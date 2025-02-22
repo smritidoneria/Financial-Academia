@@ -62,6 +62,7 @@ function Login() {
           email: "",
           password: "",
           phone: "",
+          age:""
         });
       })
       .catch((err) => {
