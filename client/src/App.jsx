@@ -12,6 +12,7 @@ import Party from "./pages/Party";
 import TaskPages from "./pages/TaskPages";
 import Monetary from "./pages/Monetary";
 import FriendsPage from "./pages/FriendsPage";
+import Demat from "./pages/Demat";
 import Redirect from "./Redirect";
 import { useSelector } from "react-redux";
 import { ToastContainer } from "react-toastify";
@@ -81,6 +82,10 @@ function App() {
         {
           path: "/home",
           element: <Home />,
+        },
+        {
+          path: "/dematchoice",
+          element: <Demat/>
         },
         {
           path: "/learning",

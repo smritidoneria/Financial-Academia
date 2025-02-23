@@ -28,7 +28,9 @@ export default function VerifyOtp({ open, handleClose, email, setLoginInfo}) {
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log(pin)
-        await Api.verifyOtp({email, otp:pin})
+        
+
+       await Api.verifyOtp({email, otp:pin})
         .then(async (res) => {
             console.log(res.data);
             if (res.data.message == 'success') {
@@ -44,8 +46,15 @@ export default function VerifyOtp({ open, handleClose, email, setLoginInfo}) {
                     password: ''
                 })
                 await timeout(1500);
-                // navigate("/home");
-                window.location.href = "/home";
+                const user=await Api.getUser({email});
+                console.log("user",user);
+                console.log("userage",user.data.user.age);
+                if(user.data.user.age>=18){
+
+                    window.location.href = "/dematchoice";
+                }
+                // // navigate("/home");
+                // window.location.href = "/home";
             }
             else {
                 toast.error(res.data.message);
