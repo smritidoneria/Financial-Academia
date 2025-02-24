@@ -35,6 +35,10 @@ import Learning from "./pages/Learning";
 import LeaderBoard from "./pages/FriendsPage";
 import StockGame from "./pages/stockgame";
 import { Dashboard } from "@mui/icons-material";
+import Zerodha from "./pages/Zerodha";
+import Upstox from "./pages/Upstox";
+import AngelOne from "./pages/AngelOne";
+import Groww from "./pages/Groww";
 
 function App() {
   const token = localStorage.getItem("token");
@@ -85,6 +89,22 @@ function App() {
         {
           path: "/home",
           element: <Home />,
+        },
+        {
+          path: "/zerodha",
+          element: <Zerodha/>,
+        },
+        {
+          path: "upstox",
+          element: <Upstox />,
+        },
+        {
+          path:"angelOne",
+          element: <AngelOne/>
+        },
+        {
+          path: "/groww",
+          element: <Groww />,
         },
         {
           path: "/dematchoice",

@@ -10,10 +10,10 @@ const Broker = () => {
   const navigate = useNavigate();
 
   const brokers = [
-    { name: "Zerodha", logo: logo1, path: "/Zerodha" },
-    { name: "Upstox", logo: logo2, path: "/Upstox" },
-    { name: "Groww", logo: logo3, path: "/Groww" },
-    { name: "AngelOne", logo: logo4, path: "/AngelOne" },
+    { name: "Zerodha", logo: logo1, path: "/zerodha" },
+    { name: "Upstox", logo: logo2, path: "/upstox" },
+    { name: "Groww", logo: logo3, path: "/groww" },
+    { name: "AngelOne", logo: logo4, path: "/angelOne" },
   ];
 
   return (
