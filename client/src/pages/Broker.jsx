@@ -28,8 +28,14 @@ const Broker = () => {
             className="flex flex-col items-center p-8 bg-white border-2 border-[#662d91] rounded-lg shadow-md cursor-pointer w-72 h-72"
             onClick={() => navigate(broker.path)}
           >
-            <img src={broker.logo} alt={broker.name} className="w-32 h-32 mb-4" />
-            <span className="text-xl font-semibold text-[#662d91]">{broker.name}</span>
+            <img
+              src={broker.logo}
+              alt={broker.name}
+              className="w-32 h-32 mb-4"
+            />
+            <span className="text-xl font-semibold text-[#662d91]">
+              {broker.name}
+            </span>
           </motion.div>
         ))}
       </div>
