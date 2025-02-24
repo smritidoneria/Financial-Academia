@@ -34,7 +34,7 @@ const steps = [
 const Groww = () => {
   return (
     <div className="w-full min-h-screen flex flex-col items-center justify-center bg-white text-black p-10">
-      <h2 className="text-4xl font-bold mb-10">How to Open a Demat Account on Groww</h2>
+      <h2 className="text-4xl font-bold mb-10"> Groww</h2>
 
       {/* Steps Container */}
       <div className="flex flex-col gap-10">
