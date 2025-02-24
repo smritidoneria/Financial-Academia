@@ -15,6 +15,7 @@ import FriendsPage from "./pages/FriendsPage";
 import Demat from "./pages/Demat";
 import Redirect from "./Redirect";
 import { useSelector } from "react-redux";
+import DematDashboard from "./pages/DematDashboard";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import StaggeredDropDown from "./components/ChatBot";
@@ -28,10 +29,12 @@ import {
 } from "./pages/Learning";
 import "./App.css";
 import Stock from "./pages/Stock";
+import Broker from "./pages/Broker";
 import Savings from "./pages/Savings";
 import Learning from "./pages/Learning";
 import LeaderBoard from "./pages/FriendsPage";
 import StockGame from "./pages/stockgame";
+import { Dashboard } from "@mui/icons-material";
 
 function App() {
   const token = localStorage.getItem("token");
@@ -88,8 +91,16 @@ function App() {
           element: <Demat/>
         },
         {
+          path:'/dashboard',
+          element: <DematDashboard/>
+        },
+        {
           path: "/learning",
           element: <Learning />,
+        },
+        {
+          path: "/broker",
+          element: <Broker/>
         },
         {
           path: "/blog",

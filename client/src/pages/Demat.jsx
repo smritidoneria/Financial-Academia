@@ -13,7 +13,7 @@ const Demat = () => {
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           className="px-6 py-3 text-lg font-semibold text-white bg-[#662d91] rounded-lg shadow-md"
-          onClick={() => navigate("/demat-exists")}
+          onClick={() => navigate("/dashboard")}
         >
           Yes, I have one
         </motion.button>
@@ -21,7 +21,7 @@ const Demat = () => {
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           className="px-6 py-3 text-lg font-semibold text-[#662d91] bg-white border-2 border-[#662d91] rounded-lg shadow-md"
-          onClick={() => navigate("/demat-create")}
+          onClick={() => navigate("/broker")}
         >
           No, I need one
         </motion.button>
