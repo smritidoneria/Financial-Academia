@@ -39,11 +39,19 @@ import Zerodha from "./pages/Zerodha";
 import Upstox from "./pages/Upstox";
 import AngelOne from "./pages/AngelOne";
 import Groww from "./pages/Groww";
+import { useLocation } from "react-router-dom";
+import StockAnalysis from "./pages/StockAnalysis";
+import Discussion from "./pages/Discussion";
+import News from "./pages/News";
+
+
 
 function App() {
   const token = localStorage.getItem("token");
 
+
   const isNavBarOpen = useSelector((state) => state.ui.isNavBarOpen);
+  
 
   const router = createBrowserRouter([
     {
@@ -62,7 +70,8 @@ function App() {
             draggable
             pauseOnHover={false}
             theme="dark"
-          />
+          />,
+          {/* element: <Layout /> */}
           {token && <NavBar />}
           {!isNavBarOpen && (
             <>
@@ -77,11 +86,28 @@ function App() {
           )}
         </>
       ),
+      
+      // path: "/",
+      // element: <Layout />, 
       children: [
+        
         {
           path: "/",
           element: <Redirect />,
         },
+        {
+          path:"/dashboard/news",
+          element: <News/>
+        },
+        {
+          path:"/dashboard/analysis",
+          element: <StockAnalysis/>
+        },
+        {
+          path:"/dashboard/discussion",
+          element: <Discussion/>
+        },
+        
         {
           path: "/login",
           element: <Login />,
