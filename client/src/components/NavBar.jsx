@@ -62,6 +62,10 @@ function NavBar() {
     setPath(window.location.pathname);
   }, [window.location.pathname]);
 
+  if (location.pathname === "/dematchoice") {
+    return null;
+  }
+
   return (
     <Disclosure as="nav" className="bg-[#33006F] sticky top-0 z-[999]">
       {({ open }) => (
