@@ -1,45 +1,57 @@
-import { Route, Routes, Link, useNavigate } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 import StockAnalysis from "./StockAnalysis";
 import News from "./News";
 import Discussion from "./Discussion";
 
 function Dashboard() {
-  const navigate = useNavigate(); // Use navigate instead of <Link>
+  const navigate = useNavigate(); 
 
   return (
-    <div className="p-6 max-w-4xl mx-auto">
-      <h1 className="text-2xl font-bold mb-4">Market Dashboard</h1>
+    <div className="w-full h-screen flex flex-col items-center justify-center bg-white text-black">
+      <h1 className="text-4xl font-bold mb-8">Market Dashboard</h1>
 
-      <div className="flex space-x-4 mb-4">
-        <button
-          className="bg-blue-500 text-white px-4 py-2 rounded"
+      {/* Navigation Buttons */}
+      <div className="flex gap-6 mb-8">
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          className="px-6 py-3 text-lg font-semibold text-white bg-[#662d91] rounded-lg shadow-md"
           onClick={() => navigate("/dashboard/analysis")}
         >
           Stock Analysis
-        </button>
+        </motion.button>
 
-        <button
-          className="bg-green-500 text-white px-4 py-2 rounded"
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          className="px-6 py-3 text-lg font-semibold text-[#662d91] bg-white border-2 border-[#662d91] rounded-lg shadow-md"
           onClick={() => navigate("/dashboard/news")}
         >
           News
-        </button>
+        </motion.button>
 
-        <button
-          className="bg-yellow-500 text-white px-4 py-2 rounded"
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          className="px-6 py-3 text-lg font-semibold text-white bg-[#662d91] rounded-lg shadow-md"
           onClick={() => navigate("/dashboard/discussion")}
         >
-          Forms Discussion
-        </button>
+          Forums Discussion
+        </motion.button>
       </div>
 
-      <Routes>
-        <Route path="/dashboard/analysis" element={<StockAnalysis />} />
-        <Route path="/dashboard/news" element={<News />} />
-        <Route path="/dashboard/discussion" element={<Discussion />} />
-      </Routes>
+      {/* Page Routing */}
+      <div className="w-full flex justify-center">
+        <Routes>
+          <Route path="/analysis" element={<StockAnalysis />} />
+          <Route path="/news" element={<News />} />
+          <Route path="/discussion" element={<Discussion />} />
+        </Routes>
+      </div>
     </div>
   );
 }
 
 export default Dashboard;
+
