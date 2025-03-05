@@ -10,6 +10,7 @@ import DailyModal from "./DailyModal";
 import NotiModal from "./NotiModal";
 import EmailIcon from "@mui/icons-material/Email";
 import { Leaderboard, Logout, Person, Stream } from "@mui/icons-material";
+import Api from "../api";
 
 const navigationUnder18 = [
   { name: "Home", href: "/home", current: false },
@@ -40,9 +41,57 @@ function NavBar() {
   const [pfp, setPfp] = useState(user?.pfp);
   const [mopen, setOpen] = useState(false);
   const [nopen, setNOpen] = useState(false);
+  const [age,setAge]=useState(0); 
 
-  const isUnder18 = user?.age < 18;
+
+  
+
+
+    useEffect(() => {
+      const storedUser = JSON.parse(localStorage.getItem("user"));
+      console.log("Stored user:", storedUser);
+      setUser(storedUser);
+    }, []);
+
+    useEffect(() => {
+      if (user) {
+        console.log("User:", user);
+        fetchUserData();
+      }
+    }, [user]);
+    const fetchUserData = async () => {
+      try {
+        const email=user.email;
+        console.log("Fetching user data...");
+        const response = await Api.getUser({email});
+        console.log("Raw response:", response);
+        console.log("data",response.data);
+    
+    
+        
+    
+        
+       
+        setAge(response.data.user.age);
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+    };
+    
+    
+   // Runs when user changes
+  
+ 
+
+
+
+
+ 
+
+  const isUnder18 = age< 18;
+  console.log("isUnder18",age);
   const navigation = isUnder18 ? navigationUnder18 : navigationOver18;
+  console.log("navigation",navigation);
 
   const openNewPage = () => {
     window.open("http://localhost:9000/", "_blank");
@@ -116,15 +165,17 @@ function NavBar() {
                     <WhatshotOutlinedIcon />
                   </IconButton>
                 </div>
-                <div className="mr-4">
+                {navigation==navigationUnder18?<div className="mr-4">
                   <IconButton onClick={handleNOpen} style={{ backgroundColor: "#33006F", color: "white" }}>
                     <EmailIcon />
                   </IconButton>
-                </div>
-                <div className="flex items-center gap-2 mr-8 text-white">
+                </div>:<></>}
+                
+                {navigation==navigationUnder18?<div className="flex items-center gap-2 mr-8 text-white">
                   <img src={ExpIcon} alt="Level" className="h-8 w-8" />
                   <span className="font-semibold tracking-wide">Level {user?.level}</span>
-                </div>
+                </div>: <></>}
+                
                 {/* Profile dropdown */}
                 <Menu as="div" className="relative ml-3">
                   <div>

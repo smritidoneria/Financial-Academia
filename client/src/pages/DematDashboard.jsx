@@ -3,15 +3,19 @@ import { motion } from "framer-motion";
 import StockAnalysis from "./StockAnalysis";
 import News from "./News";
 import Discussion from "./Discussion";
+import NavBar from "../components/NavBar";
 
 function Dashboard() {
   const navigate = useNavigate(); 
 
   return (
+    <>
+  
     <div className="w-full h-screen flex flex-col items-center justify-center bg-white text-black">
+      
       <h1 className="text-4xl font-bold mb-8">Market Dashboard</h1>
 
-      {/* Navigation Buttons */}
+      {/* Navigation Buttons
       <div className="flex gap-6 mb-8">
         <motion.button
           whileHover={{ scale: 1.1 }}
@@ -41,15 +45,16 @@ function Dashboard() {
         </motion.button>
       </div>
 
-      {/* Page Routing */}
+
       <div className="w-full flex justify-center">
         <Routes>
           <Route path="/analysis" element={<StockAnalysis />} />
           <Route path="/news" element={<News />} />
           <Route path="/discussion" element={<Discussion />} />
         </Routes>
-      </div>
+      </div> */}
     </div>
+    </>
   );
 }
 
