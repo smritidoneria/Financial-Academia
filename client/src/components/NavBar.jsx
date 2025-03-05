@@ -110,10 +110,8 @@ function NavBar() {
   useEffect(() => {
     setPath(window.location.pathname);
   }, [window.location.pathname]);
-
-  if (location.pathname === "/dematchoice") {
-    return null;
-  }
+  console.log("location",location.pathname);
+  
 
   return (
     <Disclosure as="nav" className="bg-[#33006F] sticky top-0 z-[999]">

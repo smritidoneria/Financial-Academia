@@ -1,8 +1,7 @@
-import React from "react";
-import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
-import NavBar from "./components/NavBar";
-import Footer from "./components/Footer";
+import Layout from "./Layout";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
 import BlogHome from "./pages/BlogHome";
@@ -14,11 +13,9 @@ import Monetary from "./pages/Monetary";
 import FriendsPage from "./pages/FriendsPage";
 import Demat from "./pages/Demat";
 import Redirect from "./Redirect";
-import { useSelector } from "react-redux";
 import DematDashboard from "./pages/DematDashboard";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import StaggeredDropDown from "./components/ChatBot";
 import {
   Budgeting,
   BudgetingQAndA,
@@ -34,24 +31,21 @@ import Savings from "./pages/Savings";
 import Learning from "./pages/Learning";
 import LeaderBoard from "./pages/FriendsPage";
 import StockGame from "./pages/stockgame";
-import { Dashboard } from "@mui/icons-material";
 import Zerodha from "./pages/Zerodha";
 import Upstox from "./pages/Upstox";
 import AngelOne from "./pages/AngelOne";
 import Groww from "./pages/Groww";
-import { useLocation } from "react-router-dom";
 import StockAnalysis from "./pages/StockAnalysis";
 import Discussion from "./pages/Discussion";
 import News from "./pages/News";
 
-
-
 function App() {
-  const token = localStorage.getItem("token");
+  const [token, setToken] = useState(localStorage.getItem("token"));
 
-
-  const isNavBarOpen = useSelector((state) => state.ui.isNavBarOpen);
-  
+  useEffect(() => {
+    const storedToken = localStorage.getItem("token");
+    setToken(storedToken);
+  }, []);
 
   const router = createBrowserRouter([
     {
@@ -70,44 +64,27 @@ function App() {
             draggable
             pauseOnHover={false}
             theme="dark"
-          />,
-          {/* element: <Layout /> */}
-          {token && <NavBar />}
-          {!isNavBarOpen && (
-            <>
-              <Outlet />
-              {token && (
-                <div className="fixed bottom-12 right-36">
-                  <StaggeredDropDown />
-                </div>
-              )}
-              {token && <Footer />}
-            </>
-          )}
+          />
+          <Layout />
         </>
       ),
-      
-      // path: "/",
-      // element: <Layout />, 
       children: [
-        
         {
           path: "/",
           element: <Redirect />,
         },
         {
-          path:"/dashboard/news",
-          element: <News/>
+          path: "/dashboard/news",
+          element: <News />,
         },
         {
-          path:"/dashboard/analysis",
-          element: <StockAnalysis/>
+          path: "/dashboard/analysis",
+          element: <StockAnalysis />,
         },
         {
-          path:"/dashboard/discussion",
-          element: <Discussion/>
+          path: "/dashboard/discussion",
+          element: <Discussion />,
         },
-        
         {
           path: "/login",
           element: <Login />,
@@ -118,15 +95,15 @@ function App() {
         },
         {
           path: "/zerodha",
-          element: <Zerodha/>,
+          element: <Zerodha />,
         },
         {
           path: "upstox",
           element: <Upstox />,
         },
         {
-          path:"angelOne",
-          element: <AngelOne/>
+          path: "angelOne",
+          element: <AngelOne />,
         },
         {
           path: "/groww",
@@ -134,11 +111,11 @@ function App() {
         },
         {
           path: "/dematchoice",
-          element: <Demat/>
+          element: <Demat />,
         },
         {
-          path:'/dashboard',
-          element: <DematDashboard/>
+          path: "/dashboard",
+          element: <DematDashboard />,
         },
         {
           path: "/learning",
@@ -146,7 +123,7 @@ function App() {
         },
         {
           path: "/broker",
-          element: <Broker/>
+          element: <Broker />,
         },
         {
           path: "/blog",
@@ -166,7 +143,7 @@ function App() {
         },
         {
           path: "/stock",
-          element: <StockGame/>,
+          element: <StockGame />,
         },
         {
           path: "/savings",

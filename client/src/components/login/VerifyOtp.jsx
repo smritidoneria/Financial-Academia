@@ -52,9 +52,10 @@ export default function VerifyOtp({ open, handleClose, email, setLoginInfo}) {
                 if(user.data.user.age>=18){
 
                     window.location.href = "/dematchoice";
-                }
+                }else{
                 // // navigate("/home");
                  window.location.href = "/home";
+                }
             }
             else {
                 toast.error(res.data.message);
