@@ -54,7 +54,7 @@ export default function VerifyOtp({ open, handleClose, email, setLoginInfo}) {
                     window.location.href = "/dematchoice";
                 }
                 // // navigate("/home");
-                // window.location.href = "/home";
+                 window.location.href = "/home";
             }
             else {
                 toast.error(res.data.message);
