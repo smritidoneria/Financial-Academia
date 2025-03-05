@@ -43,6 +43,7 @@ import { useLocation } from "react-router-dom";
 import StockAnalysis from "./pages/StockAnalysis";
 import Discussion from "./pages/Discussion";
 import News from "./pages/News";
+import './App.css';
 
 
 
