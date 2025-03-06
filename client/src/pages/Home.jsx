@@ -84,7 +84,7 @@ const Home = () => {
                     </div> */}
           </div>
         </div>
-        <section className="grid place-content-center bg-neutral-900 p-12">
+        <section className="grid place-content-center p-12">
           <Center>
             <FloatingPhone />
           </Center>

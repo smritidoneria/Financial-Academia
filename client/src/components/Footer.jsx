@@ -8,7 +8,8 @@ import YouTubeIcon from '@mui/icons-material/YouTube';
 function Footer() {
 
   return (
-    <footer className="bottom-0 left-0 w-full text-white py-8 flex justify-center bg-[#33006F]">
+   <footer className="w-full text-white py-8 flex justify-center bg-[#33006F] sticky bottom-0 left-0">
+
       <div className='container mx-auto w-full flex flex-col items-center justify-center gap-4'>
         <div className='w-full flex-1 flex flex-col md:flex-row items-center md:items-start justify-around gap-4 md:gap-2'>
           <div className='flex flex-col items-center justify-center gap-2'>

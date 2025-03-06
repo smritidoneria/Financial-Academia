@@ -14,6 +14,7 @@ import FriendsPage from "./pages/FriendsPage";
 import Demat from "./pages/Demat";
 import Redirect from "./Redirect";
 import DematDashboard from "./pages/DematDashboard";
+import Footer from "./components/Footer";
 import { ToastContainer } from "react-toastify";
 import Resources from "./pages/Resources"
 import "react-toastify/dist/ReactToastify.css";
@@ -66,6 +67,7 @@ function App() {
             draggable
             pauseOnHover={false}
             theme="dark"
+      
           />
           <Layout />
         </>
@@ -197,11 +199,15 @@ function App() {
 
   return (
     <AnimatePresence>
-      <div className="h-full w-full bg-[#E6E6FA]">
-        <RouterProvider router={router} />
+      <div className="min-h-screen flex flex-col bg-[#E6E6FA]">
+        <div className="flex-grow">
+          <RouterProvider router={router} />
+        </div>
+        {token &&<Footer />} {/* Footer will always be at the bottom */}
       </div>
     </AnimatePresence>
   );
+  
 }
 
 export default App;

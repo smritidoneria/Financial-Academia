@@ -77,7 +77,7 @@ function StockAnalysis() {
   };
 
   return (
-    <div className="p-6 max-w-6xl mx-auto bg-white rounded-lg shadow-md">
+    <div className="p-6 max-w-6xl mx-auto bg-white rounded-lg shadow-md h-full">
       <div className="flex items-center mb-6">
         <h1 className="text-2xl font-bold flex-grow">Stock Analysis</h1>
         <Info className="w-5 h-5 text-gray-500" />

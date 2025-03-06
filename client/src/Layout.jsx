@@ -20,7 +20,7 @@ const Layout = () => {
               <StaggeredDropDown />
             </div>
           )}
-          {token && <Footer />}
+         
         </>
       )}
     </>
