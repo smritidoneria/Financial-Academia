@@ -28,6 +28,7 @@
     "jodit-react": "^4.0.9",
     "jwt-decode": "^4.0.0",
     "localforage": "^1.10.0",
+    "lucide-react": "^0.477.0",
     "match-sorter": "^6.3.3",
     "mui-one-time-password-input": "^2.0.0",
     "particles.js": "^2.0.0",
@@ -44,7 +45,7 @@
     "react-router-dom": "^6.21.3",
     "react-tabs": "^6.0.2",
     "react-toastify": "^10.0.4",
-    "recharts": "^2.12.0",
+    "recharts": "^2.15.1",
     "sort-by": "^1.2.0",
     "styled-components": "^6.1.8",
     "typewriter-effect": "^2.21.0"
@@ -53,13 +54,13 @@
     "@types/react": "^18.2.43",
     "@types/react-dom": "^18.2.17",
     "@vitejs/plugin-react-swc": "^3.5.0",
-    "autoprefixer": "^10.4.17",
+    "autoprefixer": "^10.4.20",
     "eslint": "^8.55.0",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
-    "postcss": "^8.4.33",
-    "tailwindcss": "^3.4.1",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^3.4.17",
     "vite": "^5.0.8"
   }
 }
