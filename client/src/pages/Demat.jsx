@@ -23,7 +23,7 @@ const Demat = () => {
           whileHover={{ scale: 1.1, boxShadow: "0px 5px 15px rgba(0,0,0,0.2)" }}
           whileTap={{ scale: 0.95 }}
           className="px-8 py-4 text-lg font-semibold text-white bg-[#6a1b9a] rounded-lg shadow-lg transition-all hover:bg-[#4a148c]"
-          onClick={() => navigate("/dashboard")}
+          onClick={() => navigate("/home")}
         >
           Yes, I have one
         </motion.button>
