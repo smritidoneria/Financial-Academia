@@ -15,6 +15,7 @@ import Demat from "./pages/Demat";
 import Redirect from "./Redirect";
 import DematDashboard from "./pages/DematDashboard";
 import { ToastContainer } from "react-toastify";
+import Resources from "./pages/Resources"
 import "react-toastify/dist/ReactToastify.css";
 import {
   Budgeting,
@@ -84,6 +85,10 @@ function App() {
         {
           path: "/dashboard/discussion",
           element: <Discussion />,
+        },
+        {
+          path: "/resources",
+          element: <Resources/>
         },
         {
           path: "/login",

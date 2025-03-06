@@ -26,7 +26,7 @@ const navigationOver18 = [
   { name: "Stock Analysis", href: "/dashboard/analysis", current: false },
   { name: "News", href: "/dashboard/news", current: false },
   { name: "Forums Discussion", href: "/dashboard/discussion", current: false },
-  { name: "Portfolio", href: "/portfolio", current: false },
+  { name: "Resources", href: "/resources", current: false },
   { name: "Blog", href: "/blog", current: false },
 ];
 
