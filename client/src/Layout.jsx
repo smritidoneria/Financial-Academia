@@ -16,8 +16,8 @@ const Layout = () => {
         <>
           <Outlet />
           {token && (
-            <div className="fixed bottom-12 right-36">
-              <StaggeredDropDown />
+            <div className="bottom-12 fixed right-36 z-50">
+            <StaggeredDropDown/>
             </div>
           )}
          

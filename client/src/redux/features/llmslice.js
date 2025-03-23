@@ -6,9 +6,13 @@ export const fetchLLMInference = createAsyncThunk(
   async (msg, thunkAPI) => {
     try {
       const formData = new FormData();
+      
       formData.append("text", msg);
+      console.log("formData",formData);
       const response = await axios.post("http://127.0.0.1:5000/chat", formData);
+      console.log("response",response);
       return response.data.toString();
+
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
