@@ -39,7 +39,7 @@ def get_historical_data():
 def chatwithbot(txt: str):
     """ Generate a response from Gemini (Google AI) """
     model = genai.GenerativeModel("gemini-1.5-pro-latest")  # Use gemini-1.5-pro if available
-    response = model.generate_content(f"You're a multilingual financial assistant. Answer in the same language: {txt}")
+    response = model.generate_content(f"You're a  financial assistant. Answer in the English language: {txt}")
     return response.text.strip()
 
 @app.route('/chat', methods=["POST"])
