@@ -10,6 +10,9 @@ import init from "./db/config.js";
 import uR from "./routers/userRouter.js";
 import gR from "./routers/gameRouter.js";
 import User from "./models/userSchema.js";
+
+
+
 dotenv.config();
 
 const corsOrigin ={
@@ -245,8 +248,14 @@ bR.post("/upload/both", upload.single("video"), async (req, res) => {
 // start server
 const PORT = process.env.PORT || 5001;
 const HOSTIP = process.env.hostUrl;
-app.listen(PORT, HOSTIP, () => {
+const server = app.listen(PORT, HOSTIP || '0.0.0.0', () => {
   console.clear();
-  init();
-  console.log(`Server @ http://${HOSTIP}:${PORT}`);
-});
+  if (process.env.NODE_ENV !== 'test') {
+    console.clear();
+    init();
+    console.log(`Server @ http://${HOSTIP || 'localhost'}:${PORT}`);
+}});
+
+
+export { app, server };
+// export default app;
