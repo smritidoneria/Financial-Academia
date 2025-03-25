@@ -11,6 +11,7 @@ import NotiModal from "./NotiModal";
 import EmailIcon from "@mui/icons-material/Email";
 import { Leaderboard, Logout, Person, Stream } from "@mui/icons-material";
 import Api from "../api";
+import { useLocation } from "react-router-dom";
 
 const navigationUnder18 = [
   { name: "Home", href: "/home", current: false },
@@ -41,7 +42,7 @@ function NavBar() {
   const [pfp, setPfp] = useState(user?.pfp);
   const [mopen, setOpen] = useState(false);
   const [nopen, setNOpen] = useState(false);
-  const [age,setAge]=useState(0); 
+  // const [age,setAge]=useState(19); 
 
 
   
@@ -72,7 +73,7 @@ function NavBar() {
     
         
        
-        setAge(response.data.user.age);
+        // setAge(response.data.user.age);
       } catch (error) {
         console.error("Error fetching user data:", error);
       }
@@ -88,9 +89,10 @@ function NavBar() {
 
  
 
-  const isUnder18 = age< 18;
-  console.log("isUnder18",age);
-  const navigation = isUnder18 ? navigationUnder18 : navigationOver18;
+  // const isUnder18 = age< 18;
+  // console.log("isUnder18",age);
+  console.log("user",user);
+  const navigation = user.age<18 ? navigationUnder18 : navigationOver18;
   console.log("navigation",navigation);
 
   const openNewPage = () => {

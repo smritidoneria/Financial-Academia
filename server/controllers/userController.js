@@ -195,6 +195,7 @@ class UserController {
           {
             id: user._id,
             email: user.email,
+            age: user.age,
             name: user.name,
             pfp: user.pfp,
             level: user.gaming.level,
@@ -217,6 +218,7 @@ class UserController {
           id: user._id,
           email: user.email,
           name: user.name,
+          age: user.age,
           pfp: user.pfp,
         },
         secretKey,
