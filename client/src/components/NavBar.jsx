@@ -198,13 +198,13 @@ function NavBar() {
                           </a>
                         )}
                       </Menu.Item>
-                      <Menu.Item>
+                      {/* <Menu.Item>
                         {({ active }) => (
                           <a onClick={openNewPage} className={classNames(active ? "bg-gray bg-opacity-40" : "", "block px-4 py-2 text-sm text-gray-700 cursor-pointer hover:font-bold")}>
                             <Stream /> Stream
                           </a>
                         )}
-                      </Menu.Item>
+                      </Menu.Item> */}
                       <Menu.Item>
                         {({ active }) => (
                           <a onClick={() => { localStorage.clear(); window.location.href = "/login"; }} className={classNames(active ? "bg-gray bg-opacity-40" : "", "block px-4 py-2 text-sm text-gray-700 cursor-pointer")}>
