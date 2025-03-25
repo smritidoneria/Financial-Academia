@@ -159,7 +159,7 @@ function Login() {
             {signupInfo.age >= 18 && (
               <TextField
                 id="outlined-basic"
-                label="PAN Card"
+                label=""
                 variant="outlined"
                 margin="normal"
                 size="small"
