@@ -16,7 +16,7 @@ const app = express();
 
 app.use(cors({
   origin: [
-    "https://financial-academia-front-e556a9ig5-smritis-projects-27ed4bbd.vercel.app"
+    "https://financial-academia-front.vercel.app"
   ],
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   credentials: true
