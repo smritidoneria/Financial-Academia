@@ -3,7 +3,6 @@ import cors from "cors";
 import dotenv from "dotenv";
 import fs from "fs";
 import { google } from "googleapis";
-// import { OAuth2Client } from 'google-auth-library';
 import { spawn } from "child_process";
 import multer from "multer";
 import init from "./db/config.js";
@@ -11,29 +10,28 @@ import uR from "./routers/userRouter.js";
 import gR from "./routers/gameRouter.js";
 import User from "./models/userSchema.js";
 
-
-
 dotenv.config();
 
-const corsOrigin ={
-  origin:'*', //or whatever port your frontend is using
-  credentials:true,
-  optionSuccessStatus:200
-}
-
 const app = express();
-app.use(cors(corsOrigin));
+
+app.use(cors({
+  origin: [
+    "https://financial-academia-front-e556a9ig5-smritis-projects-27ed4bbd.vercel.app"
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  credentials: true
+}));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-// app.use(express.static('static'));
 app.use("/static", express.static("static"));
 
-// test api
+init(); // ✅ DB connect on cold start
+
 app.get("/test", (req, res) => {
   res.send("Hello World! Go To /api");
 });
 
-// base router
 const bR = express.Router();
 app.use("/api", bR);
 
@@ -41,7 +39,6 @@ bR.get("/", (req, res) => {
   res.send("v0.0.1");
 });
 
-// Routes /api/{route}
 bR.use("/user", uR);
 bR.use("/game", gR);
 
@@ -257,5 +254,5 @@ const server = app.listen(PORT, HOSTIP || '0.0.0.0', () => {
 }});
 
 
-export { app, server };
+export default app; 
 // export default app;
