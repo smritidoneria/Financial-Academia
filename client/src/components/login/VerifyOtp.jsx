@@ -17,7 +17,7 @@ import { MuiOtpInput } from 'mui-one-time-password-input';
 import Api from '../../api';
 
 
-export default function VerifyOtp({ open, handleClose, email, setLoginInfo}) {
+export default function VerifyOtp({ open, handleClose, email, setLoginInfo, demoOtp }) {
     const [pin, setPin] = useState("");
     const navigate = useNavigate();
 
@@ -98,6 +98,15 @@ export default function VerifyOtp({ open, handleClose, email, setLoginInfo}) {
                                 },
                             }}
                         />
+                        {demoOtp && (
+  <Typography
+    variant="caption"
+    sx={{ marginTop: 2, color: '#e0e0e0' }}
+  >
+    Demo OTP (for quick access): <b>{demoOtp}</b>
+  </Typography>
+)}
+
                         <Button
                             fullWidth
                             variant="outlined"
