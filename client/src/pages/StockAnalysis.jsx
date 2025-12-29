@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import  { useState, useEffect } from "react";
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 import { Info, RefreshCw, TrendingUp, TrendingDown } from "lucide-react";
 
@@ -37,29 +37,48 @@ function StockAnalysis() {
     setLoading(true);
     try {
       const response = await fetch(
-        `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${selectedSymbol}&interval=${selectedInterval}&apikey=YOUR_API_KEY`
+        `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${selectedSymbol}&apikey=FK9CQTNTT59YDDMQ`
       );
+  
       const result = await response.json();
-      const timeSeries = result["Time Series (" + selectedInterval + ")"] || {};
-      
-      // Process data for table and chart
-      const processedData = Object.entries(timeSeries).map(([time, values]) => ({
-        time,
-        open: parseFloat(values["1. open"]),
-        high: parseFloat(values["2. high"]),
-        low: parseFloat(values["3. low"]),
-        close: parseFloat(values["4. close"]),
-        volume: parseInt(values["5. volume"])
-      })).slice(0, 10).reverse(); // Take last 10 data points
-
+  
+      // Handle API limits / errors
+      if (result.Note || result.Information || result["Error Message"]) {
+        alert(result.Note || result.Information || result["Error Message"]);
+        setLoading(false);
+        return;
+      }
+  
+      // ✅ Correct key for DAILY data
+      const timeSeries = result["Time Series (Daily)"];
+  
+      if (!timeSeries) {
+        console.error("Time series not found", result);
+        setLoading(false);
+        return;
+      }
+  
+      // Process last 10 days
+      const processedData = Object.entries(timeSeries)
+        .slice(0, 10)
+        .reverse()
+        .map(([time, values]) => ({
+          time,
+          open: parseFloat(values["1. open"]),
+          high: parseFloat(values["2. high"]),
+          low: parseFloat(values["3. low"]),
+          close: parseFloat(values["4. close"]),
+          volume: parseInt(values["5. volume"]),
+        }));
+  
       setData(timeSeries);
       setChartData(processedData);
-
-      // Calculate statistics
+  
+      // Calculate stats
       if (processedData.length > 1) {
         const latest = processedData[processedData.length - 1];
         const previous = processedData[processedData.length - 2];
-        
+  
         setStats({
           open: latest.open,
           high: latest.high,
@@ -67,14 +86,19 @@ function StockAnalysis() {
           close: latest.close,
           volume: latest.volume,
           change: (latest.close - previous.close).toFixed(2),
-          changePercent: ((latest.close - previous.close) / previous.close * 100).toFixed(2)
+          changePercent: (
+            ((latest.close - previous.close) / previous.close) *
+            100
+          ).toFixed(2),
         });
       }
     } catch (error) {
       console.error("Error fetching data", error);
     }
+  
     setLoading(false);
   };
+  
 
   return (
     <div className="p-6 max-w-6xl mx-auto bg-white rounded-lg shadow-md h-full">
