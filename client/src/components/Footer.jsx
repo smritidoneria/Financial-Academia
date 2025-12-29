@@ -19,7 +19,7 @@ function Footer() {
             <div className='flex flex-col items-center gap-1'>
               <div className='flex items-center gap-4'>
                 <a
-                href='https://www.instagram.com/o.c.u.l.u.s_s.p.i.t/'  
+                href='https://www.instagram.com/smritidoneria/'  
                 target='_blank'
                 className='flex items-center gap-1 font-semibold opacity-70 hover:opacity-100 cursor-pointer'>
                   <InstagramIcon sx={{
@@ -27,7 +27,7 @@ function Footer() {
                   }} /> Instagram
                 </a>
                 <a
-                href='https://www.linkedin.com/company/oculusseesall/'  
+                href='https://www.linkedin.com/in/smriti-doneria-083327267/'  
                 target='_blank' 
                 className='flex items-center gap-1 font-semibold opacity-70 hover:opacity-100 cursor-pointer'>
                   <LinkedInIcon sx={{
@@ -36,16 +36,9 @@ function Footer() {
                 </a>
               </div>
               <div className='flex items-center gap-4'>
-              <a
-                href='https://twitter.com/oculusseesall?s=11&t=31V3U_6dN4dxqr_7A3vyaA'  
-                target='_blank' 
-                className='flex items-center gap-1 font-semibold opacity-70 hover:opacity-100 cursor-pointer' >
-                  <XIcon sx={{
-                    fontSize: 18
-                  }} /> X (Twitter)
-                </a>
+           
                 <a
-                href='https://www.youtube.com/@oculuss.p.i.t209'  
+                href='https://www.youtube.com/@smritidoneria'  
                 target='_blank' 
                 className='flex items-center gap-1 font-semibold opacity-70 hover:opacity-100 cursor-pointer'>
                   <YouTubeIcon sx={{
@@ -67,23 +60,7 @@ function Footer() {
               />
             </button>
           </div> */}
-          <div className='flex flex-col items-center justify-center gap-2'>
-            <div className='text-lg font-bold tracking-wide'>
-              Legal
-            </div>
-            <div className='flex flex-col items-center justify-center'>
-              <a 
-              href='https://oculus.spit.ac.in/privacy-policy'
-              target='_blank'
-              className='cursor-pointer opacity-75 hover:opacity-100 hover:text-slate font-semibold'
-              >Privacy Policy</a>
-              <a 
-              href='https://oculus.spit.ac.in/terms-and-conditions'
-              target='_blank'
-              className='cursor-pointer opacity-75 hover:opacity-100 hover:text-slate font-semibold'
-              >Terms and Conditions</a>
-            </div>
-          </div>
+          
         </div>
         <hr
           className='w-[90%] opacity-20' 
