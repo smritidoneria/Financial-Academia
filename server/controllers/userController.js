@@ -180,7 +180,9 @@ class UserController {
       const isMatch = await bcrypt.compare(password, user.password);
       if (!isMatch)
         return res.status(400).json({ message: "Incorrect Password!" });
-      this.sendEmail(email);
+     const result = await this.sendEmail(email);
+       res.status(200).json(result);
+
       // this.newDayTaskLoad(req, res);
       res.status(200).json({ message: "success" });
     } catch (error) {
