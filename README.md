@@ -6,8 +6,6 @@ Users below 18 are guided through a gamified learning interface with quizzes, da
 
 The platform includes secure OTP-based authentication, a personalized dashboard, progress tracking, and a reward system to encourage consistent learning. Financial Academia focuses on delivering an intuitive, age-appropriate, and interactive approach to financial education.
 
-# Block-Diagram
-![image](https://github.com/gamechanger2580/Tech-A-Thon/assets/101705932/16a2f684-cb09-49ed-911c-9c99a17a9717)
 
 ## Tech Stack
 - **React Js**: Frontend Development Framework
