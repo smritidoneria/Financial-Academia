@@ -20,6 +20,8 @@ function Login() {
     age: "",
     pancard: null,
   });
+ 
+
   const [confirmPassword, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -85,19 +87,20 @@ function Login() {
       return;
     }
     await Api.loginUser(loginInfo)
-      .then((res) => {
-        console.log(res);
-        toast.success("OTP sent to your email!");
-        setShowOtp(true);
-        setBtnName("Log In");
-        toggle(true);
-      })
-      .catch((err) => {
-        console.log(err);
-        // console.log(err.response)
-        toast.error(err.response.data.message);
-        setBtnName("Log In");
-      });
+    .then((res) => {
+      console.log(res);
+    
+      // ✅ READ OTP FROM BACKEND
+      if (res.data?.otp) {
+        setOtp(res.data.otp);
+      }
+    
+      toast.success("OTP sent to your email!");
+      setShowOtp(true);
+      setBtnName("Log In");
+      toggle(true);
+    })
+    
   };
 
   return (
@@ -106,6 +109,7 @@ function Login() {
         open={showOtp}
         handleClose={() => setShowOtp(false)}
         email={loginInfo.email}
+        demoOtp={otp}
         setLoginInfo={setLoginInfo}
       />
       <Components.Container>
