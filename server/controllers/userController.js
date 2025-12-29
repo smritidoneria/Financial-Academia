@@ -54,6 +54,11 @@ class UserController {
         text: `Your OTP for verification is: ${otp}`,
       };
       await transporter.sendMail(mailOptions);
+      return {
+      success: true,
+      message: "OTP sent successfully",
+      otp: otp, // 👈 THIS goes to frontend
+    };
       // res.status(200).json({ message: "success" });
     } catch (error) {
       console.log(error);
