@@ -1,20 +1,36 @@
-import mongoose from 'mongoose';
-import dotenv from 'dotenv';
+import mongoose from "mongoose";
+import dotenv from "dotenv";
 
-dotenv.config()
+dotenv.config();
 
-const DB = process.env.MONGO;
+const MONGO_URI = process.env.MONGO;
 
-function init() {
-    console.log("process.env.MONGO", process.env.MONGO);
-    if(!DB) console.log("DB not found in env");
-    mongoose.connect(DB, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true
-    }).then(() => {
-        console.log(`DB connected`);
-    }).catch((err) => 
-    console.log(`DB connection failed ${err}`));
+if (!MONGO_URI) {
+  throw new Error("❌ MONGO env variable not defined");
+}
+
+// Global cache (survives across Vercel invocations)
+let cached = global.mongoose;
+
+if (!cached) {
+  cached = global.mongoose = { conn: null, promise: null };
+}
+
+async function init() {
+  if (cached.conn) {
+    return cached.conn;
+  }
+
+  if (!cached.promise) {
+    cached.promise = mongoose.connect(MONGO_URI, {
+      serverSelectionTimeoutMS: 5000,
+      family: 4,               // 👈 VERY IMPORTANT for Vercel
+    });
+  }
+
+  cached.conn = await cached.promise;
+  console.log("✅ MongoDB connected");
+  return cached.conn;
 }
 
 export default init;
